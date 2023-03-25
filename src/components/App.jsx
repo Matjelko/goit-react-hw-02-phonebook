@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid';
 class App extends Component{
   state = {
     contacts: [],
+    filter: '',
     name: '',
     number: ''
   }
@@ -23,21 +24,34 @@ class App extends Component{
     })
   }
 
+  handleNameFilter = (evt) => {
+    this.setState({
+      filter: evt.target.value
+    })
+  }
+
   handleSubmit = (evt) => {
     const {contacts, name, number} = this.state;
+    const contact = { name, number, id: nanoid() };
     evt.preventDefault();   
 
     this.setState({
-      contacts: [...contacts, name, number],
+      contacts: [...contacts, contact],
       name: (''),
       number: ('')
     })
 
-    console.log(this.state)
+    // console.log(this.state)
+    // console.log(`Name: ${name}`)
+    // console.log(`Number: ${number}`)
   }
 
   render(){
-    const { contacts, name, number } = this.state;
+    const { contacts, name, number, filter } = this.state;
+
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
 
     return(
       <div>
@@ -68,13 +82,23 @@ class App extends Component{
 
         <div>
           <h2>Contacts</h2>
+
+          <p>Find contacts by name</p>
+          <input
+            type="text"
+            name="name"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            onChange={this.handleNameFilter}
+          />
+
           <ul>
-            {contacts.map((contact) => (
-              <li key={nanoid()}>
-                {contact}
+            {filteredContacts.map(contact => (
+              <li key={contact.id}>
+                {contact.name}: {contact.number}
               </li>
             ))}
           </ul>
+
         </div>
 
         <div>
