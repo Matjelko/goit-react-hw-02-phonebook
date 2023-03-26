@@ -41,6 +41,23 @@ class App extends Component{
       number: ('')
     })
 
+    // const existingContact = contacts.findIndex(contact => contact.name.toLowerCase() === name.toLowerCase)
+
+    // if(existingContact !== -1){
+    //   alert(`${name} is already in contacts`)
+    // }
+    // contacts.forEach((el) => {
+    //   if(contacts.name.includes(el.name)){
+    //     alert(`${el.name} is already in contacts`)
+    //   }
+    //   console.log(el.name)
+    //   console.log(contacts.name)
+    // })
+    
+    // if(contact.name === contact.name){
+    //   alert(`${contact.name} is already in contacts`)
+    // }
+
     // console.log(this.state)
     // console.log(`Name: ${name}`)
     // console.log(`Number: ${number}`)
