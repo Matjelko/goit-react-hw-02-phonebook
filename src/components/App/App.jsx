@@ -1,8 +1,10 @@
 import { Component } from "react";
-import Filter from "./Filter";
-import ContactForm from "./ContactForm";
-import ContactList from "./ContactList";
-import '../index.css'
+import Filter from "../Filter/Filter";
+import ContactForm from "../ContactForm/ContactForm";
+import ContactList from "../ContactList/ContactList";
+import '../../index.css';
+import PropTypes from 'prop-types';
+
 class App extends Component{
   state = {
     contacts: [],
@@ -57,6 +59,14 @@ class App extends Component{
       </div>
     )
   };
+}
+
+App.propTypes = {
+  contacts: PropTypes.array,
+  filter: PropTypes.string,
+  handleFilterChange: PropTypes.func,
+  handleAddContact: PropTypes.func,
+  handleDeleteContact: PropTypes.func
 }
 
 export default App;

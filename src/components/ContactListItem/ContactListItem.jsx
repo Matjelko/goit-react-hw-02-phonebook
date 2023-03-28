@@ -1,5 +1,6 @@
 import { Component } from "react";
 import './ContactListItem.css'
+import PropTypes from 'prop-types';
 
 class ContactListItem extends Component {
     handleDelete = () => {
@@ -15,6 +16,12 @@ class ContactListItem extends Component {
             </li>
         );
     }
+}
+
+ContactListItem.propTypes = {
+    name: PropTypes.string,
+    number: PropTypes.string,
+    handleDelete: PropTypes.func
 }
 
 export default ContactListItem

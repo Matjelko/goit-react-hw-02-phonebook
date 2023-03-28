@@ -1,6 +1,7 @@
 import { Component } from "react";
-import ContactListItem from './ContactListItem';
+import ContactListItem from '../ContactListItem/ContactListItem';
 import './ContactList.css'
+import PropTypes from 'prop-types';
 
 class ContactList extends Component {
     render() {
@@ -13,6 +14,11 @@ class ContactList extends Component {
             </ul>
         );
     }
+}
+
+ContactList.propTypes = {
+    contacts: PropTypes.array,
+    onDeleteContact: PropTypes.func
 }
 
 export default ContactList

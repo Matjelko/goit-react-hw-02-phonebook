@@ -1,5 +1,6 @@
 import { Component } from "react";
 import './Filter.css'
+import PropTypes from 'prop-types';
 
 class Filter extends Component {
     handleNameFilter = (evt) => {
@@ -22,6 +23,11 @@ class Filter extends Component {
             </div>
         );
     }
+}
+
+Filter.propTypes = {
+    filter: PropTypes.string,
+    handleNameFilter: PropTypes.func
 }
 
 export default Filter
