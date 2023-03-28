@@ -13,9 +13,23 @@ class App extends Component{
   };
     
   handleAddContact = (contact) => {
-    this.setState((prevState) => ({
-      contacts: [...prevState.contacts, contact],
-    }));
+
+    let switching = false;
+
+    this.state.contacts.forEach(el => {
+      if(el.name.toLowerCase() === contact.name.toLowerCase()){
+        switching = true;
+      }
+    })
+    
+    if(switching){
+      alert(`${contact.name} is already in contacts.`)
+    }
+    else{
+      this.setState((prevState) => ({
+        contacts: [...prevState.contacts, contact],
+      }));
+    }
   };
 
   render(){

@@ -26,16 +26,7 @@ class ContactForm extends Component {
         this.setState({ 
             name: '', 
             number: ''
-         });
-
-        //  const { contacts } = this.props;
-
-        //  const existingContact = contacts.find(contact => contact.name === name);
-         
-        //  if(existingContact) {
-        //     alert(`${name} is already in contacts.`)
-        //     return;
-        //  }
+        });
     };
     
     render() {
