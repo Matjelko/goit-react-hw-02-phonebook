@@ -1,4 +1,5 @@
 import { Component } from "react";
+import './Filter.css'
 
 class Filter extends Component {
     handleNameFilter = (evt) => {
@@ -8,9 +9,10 @@ class Filter extends Component {
     render() {
         const { filter } = this.props;
         return (
-            <div>
-                <p>Find contacts by name</p>
+            <div className="filter__section">
+                <p className="filter__paragraph">Find contacts by name</p>
                 <input
+                    className="filter__input"
                     type="text"
                     name="name"
                     title="title"

@@ -2,6 +2,7 @@ import { Component } from "react";
 import Filter from "./Filter";
 import ContactForm from "./ContactForm";
 import ContactList from "./ContactList";
+import '../index.css'
 class App extends Component{
   state = {
     contacts: [],
@@ -32,6 +33,12 @@ class App extends Component{
     }
   };
 
+  handleDeleteContact = (id) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((contact) => contact.id !== id)
+    }))
+  }
+
   render(){
     const { contacts, filter } = this.state;
 
@@ -40,13 +47,13 @@ class App extends Component{
     );
 
     return(
-      <div>
-        <h1>Phonebook</h1>
+      <div className="container">
+        <h1 className="header--phonebook">Phonebook</h1>
         <ContactForm onAddContact={this.handleAddContact} />
 
-        <h2>Contacts</h2>
+        <h2 className="header-contacts">Contacts</h2>
         <Filter filter={filter} onFilterChange={this.handleFilterChange} />
-        <ContactList contacts={filteredContacts} />
+        <ContactList contacts={filteredContacts} onDeleteContact={this.handleDeleteContact}/>
       </div>
     )
   };
